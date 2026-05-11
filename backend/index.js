@@ -15,6 +15,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
+app.get('/', (req, res) => res.send("Server is running!"));
+
 app.use('/api/identity', identityRoutes);
 
 app.use('/api/assignments', assignmentRoutes);
@@ -30,7 +33,6 @@ const PORT = process.env.PORT || 5049;
 
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
 // server.on('error', (error) => {
 //   if (error.code === 'EADDRINUSE' && PORT !== 5049) {
 //     const fallbackPort = 5049;
